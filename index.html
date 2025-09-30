@@ -3,48 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testing Update 2</title>
+  <title>Website Scroll Interaktif</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6fb;
       margin: 0;
-      padding: 20px;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth; /* bikin scroll halus */
     }
-    .card {
-      background: Pink;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: auto;
-    }
-    h1 { color: #333; }
-    button {
-      background: #0073e6;
+
+    section {
+      height: 100vh; /* tiap section setinggi layar */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
       color: white;
+      transition: background 0.5s;
+    }
+
+    #satu { background: #3498db; }
+    #dua  { background: #e67e22; }
+    #tiga { background: #2ecc71; }
+
+    nav {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.5);
       padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
       border: none;
       border-radius: 8px;
+      background: #333;
+      color: white;
       cursor: pointer;
+      display: none; /* awalnya tersembunyi */
     }
-    button:hover { background: #005bb5; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hello, I'm [0Xdirty]</h1>
-    <p>Nice to meet you this is my first website</p>
-    <p id="msg">Klik tombol di bawah untuk kejutan:</p>
-    <button onclick="showMessage()">Tap here</button>
-  </div>
+
+  <nav>
+    <a href="#satu">Bagian 1</a>
+    <a href="#dua">Bagian 2</a>
+    <a href="#tiga">Bagian 3</a>
+  </nav>
+
+  <section id="satu">Halo, ini Bagian 1 👋</section>
+  <section id="dua">Ini Bagian 2 🚀</section>
+  <section id="tiga">Dan ini Bagian 3 🎉</section>
+
+  <button id="scrollTopBtn" onclick="scrollToTop()">⬆ Atas</button>
 
   <script>
-    function showMessage() {
-      document.getElementById('msg').innerText = "Thank you for Taping";
-      alert("Hai, kamu berhasil belajar coding interaktif!");
+    // Tombol muncul kalau sudah scroll ke bawah
+    window.onscroll = function() {
+      const btn = document.getElementById("scrollTopBtn");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    // Fungsi scroll ke atas
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     }
   </script>
+
 </body>
 </html>
