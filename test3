@@ -93,7 +93,7 @@
         <img src="img/0xdirty.jpeg" alt="Avatar">
       </div>
       <h1 id="profile-name">0xdirty</h1>
-      <p class="bio">Test lagi gabut</p>
+      <p class="bio">Knowing your self is the begining of all wisdom</p>
 
       <div class="links" aria-label="Links">
         <a class="link-btn primary" href="#" target="_blank" rel="noopener noreferrer">
@@ -142,3 +142,4 @@
   </main>
 </body>
 </html>
+
